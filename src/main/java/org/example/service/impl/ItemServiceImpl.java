@@ -1,7 +1,8 @@
-package org.example.service;
+package org.example.service.impl;
 
 import org.example.dto.ItemResponse;
 import org.example.repository.ItemRepository;
+import org.example.service.ItemService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class ItemServiceImpl implements ItemService {
         return itemRepository.findAll()
                 .stream()
                 .map(ItemResponse::fromEntity)
-                .toList();
+                .toList(); // Ici le stream peut être remplacé par plein d'autre moyen. Il sagit juste d'une manière efficace et efficiente d'écrire cette partie.
     }
 
     @Override

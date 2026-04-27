@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.dto.ItemResponse;
 import org.example.entity.Item;
 import org.example.repository.ItemRepository;
+import org.example.service.impl.ItemServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
