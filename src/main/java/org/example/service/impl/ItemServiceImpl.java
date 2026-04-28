@@ -1,10 +1,12 @@
 package org.example.service.impl;
 
 import org.example.dto.ItemResponse;
+import org.example.entity.Item;
 import org.example.repository.ItemRepository;
 import org.example.service.ItemService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,6 +33,17 @@ public class ItemServiceImpl implements ItemService {
                 .stream()
                 .map(ItemResponse::fromEntity)
                 .toList(); // Ici le stream peut être remplacé par plein d'autre moyen. Il sagit juste d'une manière efficace et efficiente d'écrire cette partie.
+
+        /* Autre manière de faire si le stream n'est pas familié
+        List<ItemResponse> itemResponses = new ArrayList<>();
+        List<Item> all = itemRepository.findAll();
+
+        for (Item item : all) {
+            ItemResponse itemResponse = new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.isDone());
+            itemResponses.add(itemResponse);
+        }
+        return itemResponses;
+         */
     }
 
     @Override
