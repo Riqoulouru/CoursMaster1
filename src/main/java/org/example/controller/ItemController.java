@@ -1,6 +1,6 @@
 package org.example.controller;
 
-import org.example.dto.ItemResponse;
+import org.example.dto.ItemResponseDto;
 import org.example.service.ItemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,19 +32,19 @@ public class ItemController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ItemResponse>> findAll() {
+    public ResponseEntity<List<ItemResponseDto>> findAll() {
         return ResponseEntity.ok(itemService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ItemResponse> findById(@PathVariable Long id) {
+    public ResponseEntity<ItemResponseDto> findById(@PathVariable Long id) {
         // TODO eleves :
         // appeler le service et choisir la bonne reponse HTTP.
         return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
     }
 
     @PostMapping
-    public ResponseEntity<ItemResponse> create(@RequestBody Object request) {
+    public ResponseEntity<ItemResponseDto> create(@RequestBody Object request) {
         // TODO eleves :
         // 1. remplacer Object par un vrai DTO d'entree
         // 2. appeler le service
@@ -53,7 +53,7 @@ public class ItemController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ItemResponse> update(@PathVariable Long id, @RequestBody Object request) {
+    public ResponseEntity<ItemResponseDto> update(@PathVariable Long id, @RequestBody Object request) {
         // TODO eleves :
         // 1. remplacer Object par un vrai DTO d'entree
         // 2. appeler le service

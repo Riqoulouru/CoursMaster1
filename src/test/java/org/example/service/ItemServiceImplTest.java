@@ -1,6 +1,6 @@
 package org.example.service;
 
-import org.example.dto.ItemResponse;
+import org.example.dto.ItemResponseDto;
 import org.example.entity.Item;
 import org.example.repository.ItemRepository;
 import org.example.service.impl.ItemServiceImpl;
@@ -42,7 +42,7 @@ class ItemServiceImplTest {
 
         when(itemRepository.findAll()).thenReturn(List.of(firstItem));
 
-        List<ItemResponse> response = itemService.findAll();
+        List<ItemResponseDto> response = itemService.findAll();
 
         assertEquals(1, response.size());
         assertEquals(1L, response.getFirst().getId());

@@ -1,12 +1,10 @@
 package org.example.service.impl;
 
-import org.example.dto.ItemResponse;
-import org.example.entity.Item;
+import org.example.dto.ItemResponseDto;
 import org.example.repository.ItemRepository;
 import org.example.service.ItemService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,13 +23,13 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public List<ItemResponse> findAll() {
+    public List<ItemResponseDto> findAll() {
         // Exemple complet :
         // on lit les donnees depuis le repository
         // puis on transforme les entites en DTO de sortie.
         return itemRepository.findAll()
                 .stream()
-                .map(ItemResponse::fromEntity)
+                .map(ItemResponseDto::fromEntity)
                 .toList(); // Ici le stream peut être remplacé par plein d'autre moyen. Il sagit juste d'une manière efficace et efficiente d'écrire cette partie.
 
         /* Autre manière de faire si le stream n'est pas familié
@@ -47,7 +45,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public ItemResponse findById(Long id) {
+    public ItemResponseDto findById(Long id) {
         // TODO eleves :
         // 1. lire l'item depuis le repository
         // 2. gerer le cas ou l'item n'existe pas
@@ -56,7 +54,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public ItemResponse create(Object request) {
+    public ItemResponseDto create(Object request) {
         // TODO eleves :
         // 1. remplacer Object par un vrai DTO d'entree
         // 2. appliquer les regles metier
@@ -67,7 +65,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public ItemResponse update(Long id, Object request) {
+    public ItemResponseDto update(Long id, Object request) {
         // TODO eleves :
         // 1. remplacer Object par un vrai DTO d'entree
         // 2. retrouver l'item en base

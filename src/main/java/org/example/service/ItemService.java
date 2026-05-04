@@ -1,6 +1,6 @@
 package org.example.service;
 
-import org.example.dto.ItemResponse;
+import org.example.dto.ItemResponseDto;
 
 import java.util.List;
 
@@ -11,13 +11,13 @@ import java.util.List;
  */
 public interface ItemService {
 
-    List<ItemResponse> findAll();
+    List<ItemResponseDto> findAll();
 
-    ItemResponse findById(Long id);
+    ItemResponseDto findById(Long id);
 
-    ItemResponse create(Object request);
+    ItemResponseDto create(Object request);
 
-    ItemResponse update(Long id, Object request);
+    ItemResponseDto update(Long id, Object request);
 
     void delete(Long id);
 }
