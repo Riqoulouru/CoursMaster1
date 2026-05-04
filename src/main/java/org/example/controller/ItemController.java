@@ -33,7 +33,7 @@ public class ItemController {
 
     @GetMapping
     public ResponseEntity<List<ItemResponseDto>> findAll() {
-        return ResponseEntity.ok(itemService.findAll());
+        return ResponseEntity.status(HttpStatus.OK).body(itemService.findAll());
     }
 
     @GetMapping("/{id}")
