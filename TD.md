@@ -332,3 +332,10 @@ Le but est de produire un backend :
 - bien decoupe ;
 - testable ;
 - propre.
+
+## Branch sur Git :
+Pour le TD, avant la pause faites dans le terminal : 
+git checkout -b "VOTRE PRENOM" 
+git add .
+git commit -m "Feat : add travail"
+git push --set-upstream origin "VOTRE PRENOM"
