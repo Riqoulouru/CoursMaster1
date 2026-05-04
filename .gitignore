@@ -37,3 +37,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+CM/AGENTS.md
+.idea/dataSources.xml
