@@ -366,6 +366,11 @@ Vous devez envoyer un lien accessible vers votre repository Git à l'adresse sui
 Basile.Thiry@uphf.fr
 ```
 
+ou ajouter l'email suivant au repo
+```text
+riqoulouru@gmail.com
+```
+
 Le lien doit permettre de consulter le code sans demande d'accès supplémentaire au moment de la correction.
 
 ## Critères de notation
