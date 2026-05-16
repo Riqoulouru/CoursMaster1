@@ -28,7 +28,7 @@ Pendant le TD, vous avez travaillé sur une entité générique `Item` et sur un
 - `entity`
 - `dto`
 
-Et optionellement :
+Et optionnellement :
 
 - `transformer`
 - `exception`
@@ -142,15 +142,22 @@ Votre service doit contenir des règles métier simples mais explicites.
 
 Exemples :
 
+- une tâche supprimée ou inexistante doit produire une erreur claire ;
+- une modification doit vérifier que la tâche existe avant d'écrire en base ;
+- un changement de statut doit respecter les règles de transition que vous avez définies, si vous choisissez d'en mettre ;
+- une date limite ne doit pas être incohérente avec les contraintes de votre domaine ;
+- certaines actions peuvent être refusées selon l'état courant de la tâche si vous modélisez cette contrainte.
+
+Les règles métier ne doivent pas être placées dans le controller.
+
+En revanche, les validations de données simples doivent plutôt être gérées à l'entrée de l'API, côté controller/DTO, par exemple avec Bean Validation :
+
 - le titre est obligatoire ;
 - le titre ne doit pas dépasser une certaine longueur ;
 - la description ne doit pas dépasser une certaine longueur ;
 - la priorité est obligatoire ;
 - le statut est obligatoire ;
-- une tâche supprimée ou inexistante doit produire une erreur claire ;
-- une modification doit vérifier que la tâche existe avant d'écrire en base.
-
-Les règles métier ne doivent pas être placées dans le controller.
+- le format des champs doit être valide.
 
 ## Partie 2 - Architecture attendue
 
@@ -162,6 +169,7 @@ Le controller doit :
 
 - recevoir les requêtes HTTP ;
 - lire les paramètres de route, les query params et le body ;
+- valider les données d'entrée via les DTO ;
 - appeler le service ;
 - renvoyer une réponse HTTP adaptée.
 
@@ -172,7 +180,7 @@ Le controller ne doit pas contenir de logique métier.
 Le service doit :
 
 - contenir la logique métier ;
-- vérifier les règles ;
+- vérifier les règles métier et la cohérence applicative ;
 - appeler le repository ;
 - transformer les entités si nécessaire ;
 - être testable.
@@ -367,6 +375,7 @@ Basile.Thiry@uphf.fr
 ```
 
 ou ajouter l'email suivant au repo
+
 ```text
 riqoulouru@gmail.com
 ```
