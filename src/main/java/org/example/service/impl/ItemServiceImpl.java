@@ -1,6 +1,7 @@
 package org.example.service.impl;
 
 import org.example.dto.ItemResponseDto;
+import org.example.mapper.ItemMapper;
 import org.example.repository.ItemRepository;
 import org.example.service.ItemService;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,11 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
 
     private final ItemRepository itemRepository;
+    private final ItemMapper itemMapper;
 
-    public ItemServiceImpl(ItemRepository itemRepository) {
+    public ItemServiceImpl(ItemRepository itemRepository, ItemMapper itemMapper) {
         this.itemRepository = itemRepository;
+        this.itemMapper = itemMapper;
     }
 
     @Override
@@ -29,10 +32,10 @@ public class ItemServiceImpl implements ItemService {
         // puis on transforme les entites en DTO de sortie.
         return itemRepository.findAll()
                 .stream()
-                .map(ItemResponseDto::fromEntity)
-                .toList(); // Ici le stream peut être remplacé par plein d'autre moyen. Il sagit juste d'une manière efficace et efficiente d'écrire cette partie.
+                .map(itemMapper::toResponseDto)
+                .toList();
 
-        /* Autre manière de faire si le stream n'est pas familié
+        /* Autre maniere de faire si le stream n'est pas familier
         List<ItemResponse> itemResponses = new ArrayList<>();
         List<Item> all = itemRepository.findAll();
 

@@ -1,7 +1,5 @@
 package org.example.dto;
 
-import org.example.entity.Item;
-
 /**
  * DTO de sortie.
  * Permet de controler ce que l'API renvoie.
@@ -21,15 +19,6 @@ public class ItemResponseDto {
         this.name = name;
         this.description = description;
         this.done = done;
-    }
-
-    public static ItemResponseDto fromEntity(Item item) {
-        return new ItemResponseDto(
-                item.getId(),
-                item.getName(),
-                item.getDescription(),
-                item.isDone()
-        );
     }
 
     public Long getId() {

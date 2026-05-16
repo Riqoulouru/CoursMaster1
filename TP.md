@@ -209,6 +209,16 @@ Exemples :
 
 L'entité JPA ne doit pas être exposée directement par les controllers.
 
+Les DTO doivent rester de simples objets de transport.
+Évitez d'y mettre de la logique de transformation du type `fromEntity()` ou `toEntity()`.
+
+La conversion entre entité et DTO doit être faite dans une classe dédiée, par exemple :
+
+- `TaskMapper`
+- ou `TaskTransformer`
+
+Le mapper centralise les conversions et évite de mélanger les responsabilités.
+
 ## Partie 3 - Frontend Vue
 
 Vous devez créer un frontend avec Vue.
